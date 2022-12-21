@@ -1,3 +1,111 @@
+
+import $ from 'jquery'
+
+$(function(){
+
+let windowW=$(window).width()
+
+if(1160<=windowW){
+    nav()
+    submenu()
+}
+else if(980 <= windowW && windowW < 1159){
+    nav()
+    submenu()
+}
+
+else if(580 <=windowW && windowW<979){
+    tNav()
+}
+
+else if(windowW<579){
+    tNav()
+}
+
+// 공통
+
+
+// reset
+
+})
+
+//  web nav
+function nav(){
+
+$('header nav li>a').on('click',function(e){
+    const navA=$(this).attr('href');
+    const aPos= $(navA).offset().top ;
+    const headerHeight =$('header').innerHeight();
+    $('html,body').animate({scrollTop:aPos - headerHeight},800);
+    return false;
+})
+}
+// table,mobil nav
+function tNav(){
+
+    let navW=$('header nav').width()
+
+        // .btn click
+    $('header .btn').on('click',function(e){
+        $('header nav').animate({left:0},500)
+        $(this).hide()
+
+    })
+
+
+
+    // scroll
+
+    $('nav li>a').on('click',function(e){
+        const navA=$(this).attr('href');
+        const aPos= $(navA).offset().top ;
+        const headerHeight =$('header').innerHeight();
+        $('html,body').animate({scrollTop:aPos - headerHeight},800);
+        $('nav').css('left','-'+navW+'px')
+        $('header .btn').show();
+        return false;
+    })
+
+
+    // close
+
+    $('nav .close').on('click',function(e){
+        $('nav').css('left','-'+navW+'px')
+        $('header .btn').show();
+    })
+}
+
+
+function submenu(){
+// html 연결
+//jquery 
+$('#submenu li>a').on('click',function(e){
+const liA=$(this).attr('href');
+const bPos=$(liA).offset().top;
+const headerHeight=$('header').innerHeight();
+$('html,body').animate({scrollTop:bPos- headerHeight},800);
+return false;
+}
+)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log('welcome')
 
 

@@ -60,6 +60,9 @@ article h3{
         font-size: 35px;
     }
 
+    header>p.btn{
+    display: flex;
+    }
 
     nav{
         position: fixed;
@@ -71,7 +74,6 @@ article h3{
         padding-top: 25vh;
         box-sizing: border-box;
     }
-
 
 
 
@@ -97,6 +99,8 @@ article h3{
     nav .close{
         display: block;
     }
+
+    
 
     #box01{
 background-size: auto 100%;
