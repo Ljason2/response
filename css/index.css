@@ -108,7 +108,7 @@ header>p.btn{
 }
 
 header>p.btn>span{
-    display: block;
+    display: none;
     width: 100%;
     height: 2px;
     background-color: white;

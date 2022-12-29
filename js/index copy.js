@@ -1,51 +1,38 @@
 
 import $ from 'jquery'
- 
+
 $(function(){
 
 let windowW=$(window).width()
-// 웹
-
-console.log(windowW)
 
 if(1160<=windowW){
     nav()
     submenu()
 }
-// 웹에서 태블릿으로 가는 과정
 else if(980 <= windowW && windowW < 1159){
     nav()
     submenu()
 }
 
-// 태블릿
 else if(580 <=windowW && windowW<979){
     tNav()
-    gallery()
 }
 
-// 모바일
 else if(windowW<579){
     tNav()
-    gallery()
-    formData()
 }
 
 // 공통
-// reset : 포트폴리오
-
-$(window).on('resize',function(e){
-window.location.reload();
-})
 
 
-//
+// reset
+
 })
 
 //  web nav
 function nav(){
 
-$('nav li>a').on('click',function(e){
+$('header nav li>a').on('click',function(e){
     const navA=$(this).attr('href');
     const aPos= $(navA).offset().top ;
     const headerHeight =$('header').innerHeight();
@@ -56,11 +43,11 @@ $('nav li>a').on('click',function(e){
 // table,mobil nav
 function tNav(){
 
-    let navW=$('nav').width()
+    let navW=$('header nav').width()
 
         // .btn click
     $('header .btn').on('click',function(e){
-        $('nav').animate({left:0},500)
+        $('header nav').animate({left:0},500)
         $(this).hide()
 
     })
@@ -93,61 +80,28 @@ function submenu(){
 // html 연결
 //jquery 
 $('#submenu li>a').on('click',function(e){
-const asideA=$(this).attr('href');
-const asidePos=$(asideA).offset().top;
+const liA=$(this).attr('href');
+const bPos=$(liA).offset().top;
 const headerHeight=$('header').innerHeight();
-$('html,body').animate({scrollTop:asidePos- headerHeight},800);
+$('html,body').animate({scrollTop:bPos- headerHeight},800);
 return false;
-})
+}
+)
 }
 
 
 
-function gallery(){
-
-// 준비하기
-const figureW=$('#box03 #all figure').width();
-$('#all figure:last').prependTo('#all')
-$('#all').css('margin-left','-'+figureW+'px')
-
-
-// 이벤트
-$('#gallery .prev').on('click',function(e){
-    $('#all').animate({marginLeft:'-='+figureW+'px'},400,function(){
-        $('#all figure:first').appendTo('#all')
-        $('#all').css('margin-left','-'+figureW+'px')    
-    })
-    })
-    
-    $('#gallery .next').on('click',function(e){
-    $('#all').animate({marginLeft:'+='+figureW+'px'},400,function(){
-        $('#all>figure:last').prependTo('#all')
-        $('#all').css('margin-left','-'+figureW+'px')
-    })
-    })
-}
-
-
-function formData(){
-const $liForm=$('#box04 li>input,#box04 li>textarea');
-
-$liForm.removeAttr('placeholder');
-
-// focus
-$liForm.on('focus',function(e){
-$(this).prev('label').fadeOut(300)
-})
-$liForm.on('blur',function(e){
-    let str=$(this).val();
-    if(str === ''){
-        $(this).prev('label').fadeIn(300);
-    }
-})
-}
 
 
 
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+
+
+
+
+
+
 
 
 

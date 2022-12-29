@@ -64,6 +64,10 @@ article h3{
     display: flex;
     }
 
+    header>p.btn>span{
+    display: block;
+    }
+
     nav{
         position: fixed;
         left: -400px;
@@ -123,7 +127,7 @@ background-size: auto 100%;
     
 
     #box01>ul>li{
-        width: 33.33333vw;
+        width: 32.33333vw;
     }
     
 
@@ -365,7 +369,10 @@ header>div>nav>ul>li{
         display: flex;
     }
     
- 
+    header>p.btn>span{
+        display: block;
+    }
+
 
 
     /* box01 */
